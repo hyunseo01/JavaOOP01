@@ -13,7 +13,7 @@ public class Library {
     // add()
     public void addBook(Book book) {
         books.add(book);
-        System.out.println("책 " + book.title + " 이" + name + " 도서관에 등록됨");
+        System.out.println("책 " + book.getTitle() + " 이" + name + " 도서관에 등록됨");
     }
 
     // 책 목록 출력
@@ -33,10 +33,10 @@ public class Library {
         boolean found = false; // 책을 찾았는지 여부
         for (int i = 0; i < books.size(); i++) {
             Book book = books.get(i);
-            if (book.title.equals(title)) {
+            if (book.getTitle().equals(title)) {
                 found = true;
-                if (!book.isBorrowed) {
-                    book.isBorrowed = true;
+                if (!book.isBorrowed()) {
+                    book.setBorrowed(false);
                     System.out.println("책 \"" + title + "\"가 대여됨");
                 } else {
                     System.out.println("책 \"" + title + "\"가 이미 대여 중");
@@ -54,10 +54,10 @@ public class Library {
         boolean found = false;
         for (int i = 0; i < books.size(); i++) {
             Book book = books.get(i);
-            if (book.title.equals(title)) {
+            if (book.getTitle().equals(title)) {
                 found = true;
-                if (book.isBorrowed) {
-                    book.isBorrowed = false;
+                if (book.isBorrowed()) {
+                    book.setBorrowed(false);
                     System.out.println("책 \"" + title + "\"가 반납됨");
                 } else {
                     System.out.println("책 \"" + title + "\"는 대여 중이 아님");

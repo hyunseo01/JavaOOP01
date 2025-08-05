@@ -1,6 +1,10 @@
 public class EBook extends Book{
 
-    public int fileSize;
+    private int fileSize;
+
+    public int getFileSize() {
+        return fileSize;
+    }
 
     public EBook(String title, String author, int fileSize) {
         super(title, author);
@@ -14,6 +18,6 @@ public class EBook extends Book{
 
     @Override
     public void showBook() {
-        System.out.println("책 제목 : " + title + ", 저자: " + author + " 파일 크기: " + fileSize +" 대여여부: " + (isBorrowed ? "대여중":"대여가능"));
+        System.out.println("책 제목 : " + getTitle() + ", 저자: " + getAuthor() + " 파일 크기: " + fileSize +" 대여여부: " + (isBorrowed() ? "대여중":"대여가능"));
     }
 }
